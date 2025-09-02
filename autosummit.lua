@@ -413,7 +413,7 @@ local AutoSummitATIN = {
 
 local AutoSummitMerapi = {
     CFrame.new(-2000.68,1878.72,-268.20), -- Summit
-    CFrame.new(-4240.44,,13.90,2316.65), -- Basecamp
+    CFrame.new(-4240.44,13.90,2316.65), -- Basecamp
     CFrame.new(-3256.45,18.09,1491.02), -- CP1
     CFrame.new(-2317.71,177.13,1541.86), -- CP2
     CFrame.new(-3205.62,338.25,408.07), -- CP3

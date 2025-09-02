@@ -263,6 +263,123 @@ local Slider = Tab:CreateSlider({
    end,
 })
 
+-- local Tab = Window:CreateTab("Teleport")
+-- local Section = Tab:CreateSection("- 3xplo Yang Tersedia -")
+
+-- local Toggle = Tab:CreateToggle({
+--     Name = "Teleport to CP1",
+--     CurrentValue = false,
+--     Flag = "Toggle1",
+--     Callback = function(Value)
+--         if Value then
+--             local player = game.Players.LocalPlayer
+--             local character = player.Character or player.CharacterAdded:Wait()
+--             local hrp = character:WaitForChild("HumanoidRootPart")
+
+--             -- Ganti ini ke koordinat tujuan kamu
+--             local targetPosition = CFrame.new(3348.82,9032.50,5636.42)
+
+--             hrp.CFrame = targetPosition
+--         end
+--         -- Kalau Value == false, nggak ngapa-ngapain
+--     end,
+-- })
+
+-- local Toggle = Tab:CreateToggle({
+--     Name = "Teleport to CP2",
+--     CurrentValue = false,
+--     Flag = "Toggle1",
+--     Callback = function(Value)
+--         if Value then
+--             local player = game.Players.LocalPlayer
+--             local character = player.Character or player.CharacterAdded:Wait()
+--             local hrp = character:WaitForChild("HumanoidRootPart")
+
+--             -- Ganti ini ke koordinat tujuan kamu
+--             local targetPosition = CFrame.new(3075.16,9108.50,4457.68)
+
+--             hrp.CFrame = targetPosition
+--         end
+--         -- Kalau Value == false, nggak ngapa-ngapain
+--     end,
+-- })
+
+-- local Toggle = Tab:CreateToggle({
+--     Name = "Teleport to CP3",
+--     CurrentValue = false,
+--     Flag = "Toggle1",
+--     Callback = function(Value)
+--         if Value then
+--             local player = game.Players.LocalPlayer
+--             local character = player.Character or player.CharacterAdded:Wait()
+--             local hrp = character:WaitForChild("HumanoidRootPart")
+
+--             -- Ganti ini ke koordinat tujuan kamu
+--             local targetPosition = CFrame.new(1876.87,9552.50,3487.89)
+
+--             hrp.CFrame = targetPosition
+--         end
+--         -- Kalau Value == false, nggak ngapa-ngapain
+--     end,
+-- })
+
+-- local Toggle = Tab:CreateToggle({
+--     Name = "Teleport to CP4",
+--     CurrentValue = false,
+--     Flag = "Toggle1",
+--     Callback = function(Value)
+--         if Value then
+--             local player = game.Players.LocalPlayer
+--             local character = player.Character or player.CharacterAdded:Wait()
+--             local hrp = character:WaitForChild("HumanoidRootPart")
+
+--             -- Ganti ini ke koordinat tujuan kamu
+--             local targetPosition = CFrame.new(1369.14,9776.50,3126.86)
+
+--             hrp.CFrame = targetPosition
+--         end
+--         -- Kalau Value == false, nggak ngapa-ngapain
+--     end,
+-- })
+
+-- local Toggle = Tab:CreateToggle({
+--     Name = "Teleport to CP5",
+--     CurrentValue = false,
+--     Flag = "Toggle1",
+--     Callback = function(Value)
+--         if Value then
+--             local player = game.Players.LocalPlayer
+--             local character = player.Character or player.CharacterAdded:Wait()
+--             local hrp = character:WaitForChild("HumanoidRootPart")
+
+--             -- Ganti ini ke koordinat tujuan kamu
+--             local targetPosition = CFrame.new(1189.22,10121.51,2295.03)
+
+--             hrp.CFrame = targetPosition
+--         end
+--         -- Kalau Value == false, nggak ngapa-ngapain
+--     end,
+-- })
+
+-- local Toggle = Tab:CreateToggle({
+--     Name = "Teleport to SUMMIT",
+--     CurrentValue = false,
+--     Flag = "Toggle1",
+--     Callback = function(Value)
+--         if Value then
+--             local player = game.Players.LocalPlayer
+--             local character = player.Character or player.CharacterAdded:Wait()
+--             local hrp = character:WaitForChild("HumanoidRootPart")
+
+--             -- Ganti ini ke koordinat tujuan kamu
+--             local targetPosition = CFrame.new(-120.01,10832.71,3017.44)
+
+--             hrp.CFrame = targetPosition
+--         end
+--         -- Kalau Value == false, nggak ngapa-ngapain
+--     end,
+-- })
+
 -- ===== Helper =====
 local function getCharacterAndHRP()
     local character = player.Character or player.CharacterAdded:Wait()
@@ -420,6 +537,16 @@ local AutoSummitMerapi = {
     CFrame.new(-2111.45,1880.35,-312.74), -- PLANG
 }
 
+local AutoSummitRinjani = {
+    CFrame.new(3353.48,9033.58,5633.81), -- CP1
+    CFrame.new(3079.93,9108.74,4455.46), -- CP2
+    CFrame.new(1878.50,9553.97,3484.22), -- CP3
+    CFrame.new(1370.43,9776.59,3122.20), -- CP4
+    CFrame.new(1188.40,10122.28,2291.25), -- CP5
+    CFrame.new(-120.01,10832.71,3017.44), -- SUMMIT
+    CFrame.new(2693.64,8956.50,7527.51) -- Balik Ke Start
+}
+
 local Toggle_A
 Toggle_A = Tab:CreateToggle({
     Name = "Auto Summit Gunung Yahayuk",
@@ -471,6 +598,20 @@ Toggle_D = Tab:CreateToggle({
         if on then
             spawn(function()
                 runOnceResilient(AutoSummitMerapi, Toggle_D)
+            end)
+        end
+    end,
+})
+
+local Toggle_E
+Toggle_E = Tab:CreateToggle({
+    Name = "Auto Summit Gunung Rinjani",
+    CurrentValue = false,
+    Flag = "AutoTP_Toggle_E",
+    Callback = function(on)
+        if on then
+            spawn(function()
+                runOnceResilient(AutoSummitRinjani, Toggle_E)
             end)
         end
     end,

@@ -277,7 +277,7 @@ local Slider = Tab:CreateSlider({
 --             local hrp = character:WaitForChild("HumanoidRootPart")
 
 --             -- Ganti ini ke koordinat tujuan kamu
---             local targetPosition = CFrame.new(3348.82,9032.50,5636.42)
+--             local targetPosition = CFrame.new(-370.81,361.78,465.77)
 
 --             hrp.CFrame = targetPosition
 --         end
@@ -525,16 +525,12 @@ local AutoSummitATIN = {
     CFrame.new(625.72,1807.36,3432.32), -- CP26
     CFrame.new(806.40,2169.73,3897.66), -- SUMMIT
     CFrame.new(112.62,2432.62,3484.93), -- PLANG
-    CFrame.new(15.32,54.67,-1081.71) -- Balik Ke Start
+    CFrame.new(15.32,54.67,-1081.71), -- Balik Ke Start
 }
 
 local AutoSummitMerapi = {
     CFrame.new(-2000.68,1878.72,-268.20), -- Summit
     CFrame.new(-4240.44,13.90,2316.65), -- Basecamp
-    CFrame.new(-3256.45,18.09,1491.02), -- CP1
-    CFrame.new(-2317.71,177.13,1541.86), -- CP2
-    CFrame.new(-3205.62,338.25,408.07), -- CP3
-    CFrame.new(-2111.45,1880.35,-312.74), -- PLANG
 }
 
 local AutoSummitRinjani = {
@@ -544,7 +540,19 @@ local AutoSummitRinjani = {
     CFrame.new(1370.43,9776.59,3122.20), -- CP4
     CFrame.new(1188.40,10122.28,2291.25), -- CP5
     CFrame.new(-120.01,10832.71,3017.44), -- SUMMIT
-    CFrame.new(2693.64,8956.50,7527.51) -- Balik Ke Start
+    CFrame.new(2693.64,8956.50,7527.51), -- Balik Ke Start
+}
+
+local AutoSummitHilih = {
+    CFrame.new(444.01,14.01,-606.61), -- CP1
+    CFrame.new(-212.45,48.58,-121.66), -- CP2
+    CFrame.new(-840.77,35.99,-74.67), -- CP3
+    CFrame.new(-710.52,400.87,396.13), -- CP4
+    CFrame.new(-343.62,149.93,218.66), -- CP5
+    CFrame.new(-371.40,360.07,469.29), -- CP6
+    CFrame.new(-73.06,336.25,242.59), -- CP7
+    CFrame.new(255.53,527.68,137.86), -- SUMMIT
+    CFrame.new(-913.85,23.17,-718.45), -- Balik Ke Start
 }
 
 local Toggle_A
@@ -591,7 +599,7 @@ Toggle_C = Tab:CreateToggle({
 
 local Toggle_D
 Toggle_D = Tab:CreateToggle({
-    Name = "Auto Summit Gunung Merapi",
+    Name = "Auto Summit Gunung Merapi (Relog)",
     CurrentValue = false,
     Flag = "AutoTP_Toggle_D",
     Callback = function(on)
@@ -612,6 +620,20 @@ Toggle_E = Tab:CreateToggle({
         if on then
             spawn(function()
                 runOnceResilient(AutoSummitRinjani, Toggle_E)
+            end)
+        end
+    end,
+})
+
+local Toggle_F
+Toggle_F = Tab:CreateToggle({
+    Name = "Auto Summit Gunung Hilih",
+    CurrentValue = false,
+    Flag = "AutoTP_Toggle_F",
+    Callback = function(on)
+        if on then
+            spawn(function()
+                runOnceResilient(AutoSummitHilih, Toggle_F)
             end)
         end
     end,
